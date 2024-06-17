@@ -7,6 +7,14 @@ import SearchIcon from './search.svg'
 //5ea9ca27
 const API_URL = "http://www.omdbapi.com?apikey=5ea9ca27";
 
+const movie1 = {
+  "Title": "Spider-Man Title Reveal",
+  "Year": "2021",
+  "imdbID": "tt14122734",
+  "Type": "movie",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BNjRjMmQ2NDQtNmI5NC00N2EwLTkwYWQtOTM2OGZjMmI5YmRjXkEyXkFqcGdeQXVyMTI0NTA1MDI3._V1_SX300.jpg"
+}
+
 const App = () => {
   
   const searchMovies = async (title) => {
@@ -32,8 +40,16 @@ useEffect(() =>{
         />
         <img 
         src={SearchIcon} 
-        alt='search icon' 
+        alt='search icon'
+        onClick={()=>{}}
         />
+      </div>
+      <div className='container'>
+        <div className='movie'>
+<div>
+  <p>{movie1.Year}</p>
+</div>
+        </div>
       </div>
     </div>
   )
