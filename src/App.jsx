@@ -5,14 +5,14 @@ import "./App.css";
 import SearchIcon from "./search.svg";
 import MovieCard from "./MovieCard";
 //5ea9ca27
-const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5ea9ca27";
+const API_URL = "https://podcast-api.netlify.app";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    searchMovies("Spiderman");
+    searchMovies(" ");
   }, []);
 
   const searchMovies = async (title) => {
