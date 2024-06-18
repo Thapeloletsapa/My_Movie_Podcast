@@ -1,19 +1,20 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import EpisodeList from "./EpisodeList";
 
-const Podcast = ({ podcast }) => {
+function Podcast({ podcast }) {
   return (
     <div>
-      <h2>{podcast.title}</h2>
-      <p>{podcast.description}</p>
+      <h1>{podcast.title}</h1>
+      <p>Updated: {podcast.updated}</p>
+      <p>Seasons: {podcast.seasons.length}</p>
+      <p>Genres: {podcast.genreIds.map((genreId) => genreTitles[genreId])}</p>
       <img src={podcast.image} alt={podcast.title} />
-      <p>Number of seasons: {podcast.seasons.length}</p>
-      <p>Last updated: {podcast.updated}</p>
-      <EpisodeList episodes={podcast.episodes} />
+      <EpisodeList episodes={podcast.seasons[0].episodes} />
     </div>
   );
-};
+}
 
 export default Podcast;

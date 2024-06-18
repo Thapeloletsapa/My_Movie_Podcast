@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { getPodcasts, getPodcast, getGenre } from "./api";
+import { getShows, getShow, getGenre } from "./api";
 import PodcastList from "./Components/PodcastList";
-import Podcast from "./Podcast";
-import EpisodeList from "./EpisodeList";
-import Episode from "./Episode";
-import AudioPlayer from "./AudioPlayer";
-import Favourites from "./Favourites";
+import Podcast from "./Components/Podcast";
+import EpisodeList from "./Components/EpisodeList";
+import Episode from "./Components/Episode";
+import AudioPlayer from "./Components/AudioPlayer";
+import Favourites from "./Components/Favourites";
 
 function App() {
-  const [podcasts, setPodcasts] = useState([]);
+  const [shows, setShows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [favourites, setFavourites] = useState({});
 
   useEffect(() => {
-    getPodcasts().then((response) => {
-      setPodcasts(response.data);
+    getShows().then((response) => {
+      setShows(response.data);
       setLoading(false);
     });
   }, []);
@@ -40,7 +40,7 @@ function App() {
         <p>Loading...</p>
       ) : (
         <div>
-          <PodcastList podcasts={podcasts} />
+          <PodcastList podcasts={shows} />
           <Favourites favourites={favourites} />
           <AudioPlayer />
         </div>
