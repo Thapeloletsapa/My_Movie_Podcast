@@ -1,57 +1,52 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
-import "./App.css";
-import SearchIcon from "./search.svg";
-import MovieCard from "./MovieCard";
-//5ea9ca27
-const API_URL = "https://podcast-api.netlify.app";
+import React, { useState, useEffect } from "react";
+import { getPodcasts, getPodcast, getGenre } from "./api";
+import PodcastList from "./Components/PodcastList";
+import Podcast from "./Podcast";
+import EpisodeList from "./EpisodeList";
+import Episode from "./Episode";
+import AudioPlayer from "./AudioPlayer";
+import Favourites from "./Favourites";
 
-const App = () => {
-  const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+function App() {
+  const [podcasts, setPodcasts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [favourites, setFavourites] = useState({});
 
   useEffect(() => {
-    searchMovies(" ");
+    getPodcasts().then((response) => {
+      setPodcasts(response.data);
+      setLoading(false);
+    });
   }, []);
 
-  const searchMovies = async (title) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
+  const handleFavourite = (episodeId) => {
+    setFavourites((prevFavourites) => ({
+      ...prevFavourites,
+      [episodeId]: true,
+    }));
+  };
 
-    setMovies(data.Search);
+  const handleUnfavourite = (episodeId) => {
+    setFavourites((prevFavourites) => ({
+      ...prevFavourites,
+      [episodeId]: false,
+    }));
   };
 
   return (
-    <div className="app">
-      <h1>Bioskop</h1>
-
-      <div className="search">
-        <input
-          value={searchTerm}
-          placeholder="Search for a movie..."
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <img
-          src={SearchIcon}
-          alt="search icon"
-          onClick={() => searchMovies(searchTerm)}
-        />
-      </div>
-
-      {movies?.length > 0 ? (
-        <div className="container">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-        </div>
+    <div>
+      {loading ? (
+        <p>Loading...</p>
       ) : (
-        <div className="empty">
-          <h2>No Movies Found</h2>
+        <div>
+          <PodcastList podcasts={podcasts} />
+          <Favourites favourites={favourites} />
+          <AudioPlayer />
         </div>
       )}
     </div>
   );
-};
+}
 
 export default App;
