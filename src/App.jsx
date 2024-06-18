@@ -7,6 +7,7 @@ import EpisodeList from "./Components/EpisodeList";
 import Episode from "./Components/Episode";
 import AudioPlayer from "./Components/AudioPlayer";
 import Favourites from "./Components/Favourites";
+import "./styles.css";
 
 function App() {
   const [shows, setShows] = useState([]);
