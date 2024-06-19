@@ -9,6 +9,9 @@ import AudioPlayer from "./Components/AudioPlayer";
 import Favourites from "./Components/Favourites";
 import GenreFilter from "./Components/GenreFilter";
 import Header from "./Components/Header";
+import { BrowserRouter, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
+import Routes from "./config/Routes";
 import "./styles.css";
 
 function App() {
@@ -38,14 +41,20 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
-        <Header />
-        <PodcastList podcasts={shows} />
-        <Favourites favourites={favourites} />
-        <AudioPlayer />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Route
+        render={(props) => {
+          <>
+            <Header {...props} />
+            <Routes />
+            <PodcastList podcasts={shows} />
+            <Favourites favourites={favourites} />
+            <AudioPlayer />
+            <Footer />
+          </>;
+        }}
+      />
+    </BrowserRouter>
   );
 }
 
