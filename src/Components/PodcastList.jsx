@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+
 import React from "react";
 import Podcast from "./Podcast";
 
@@ -18,7 +19,7 @@ function PodcastList({ podcasts }) {
               {podcast.genreIds &&
                 podcast.genreIds.map((genreId) => genreTitles[genreId])}
             </p>
-            <img src={podcast.image} alt={podcast.title} />
+            <img src={podcast.image} alt={podcast.title} width="70px" />
           </li>
         ))}
     </ul>

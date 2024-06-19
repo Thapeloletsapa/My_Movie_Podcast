@@ -7,6 +7,8 @@ import EpisodeList from "./Components/EpisodeList";
 import Episode from "./Components/Episode";
 import AudioPlayer from "./Components/AudioPlayer";
 import Favourites from "./Components/Favourites";
+import GenreFilter from "./Components/GenreFilter";
+import Header from "./Components/Header";
 import "./styles.css";
 
 function App() {
@@ -37,15 +39,12 @@ function App() {
 
   return (
     <div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          <PodcastList podcasts={shows} />
-          <Favourites favourites={favourites} />
-          <AudioPlayer />
-        </div>
-      )}
+      <div>
+        <Header />
+        <PodcastList podcasts={shows} />
+        <Favourites favourites={favourites} />
+        <AudioPlayer />
+      </div>
     </div>
   );
 }
