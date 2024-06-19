@@ -51,7 +51,7 @@ export default function PodCard(props) {
         component="img"
         height="194"
         image={props.image}
-        alt="Paella dish"
+        alt="image title"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
