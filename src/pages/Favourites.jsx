@@ -1,15 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { styled } from 'styled-components';
-import { Navbar } from '../components';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { styled } from "styled-components";
+import { Navbar } from "../components";
+import { Link } from "react-router-dom";
 import {
   setFavoritesSorting,
   setFavouritesDisplayedPodcasts,
-} from '../globalState/reducers/podcastsReducer';
-
+} from "../globalState/reducers/podcastsReducer";
 
 const FavouritesContainer = styled.div`
   color: white;
@@ -84,25 +84,25 @@ const Favourites = () => {
     });
 
     let sortedLowercase = lowercase.sort((a, b) => {
-      if (value === 'ZA') {
-        dispatch(setFavoritesSorting('ZA'));
+      if (value === "ZA") {
+        dispatch(setFavoritesSorting("ZA"));
         return a.title > b.title ? -1 : 1;
       }
-      if (value === 'AZ') {
-        dispatch(setFavoritesSorting('AZ'));
+      if (value === "AZ") {
+        dispatch(setFavoritesSorting("AZ"));
         return a.title > b.title ? 1 : -1;
       }
-      if (value === 'ascendingDate') {
-        dispatch(setFavoritesSorting('ascendingDate'));
+      if (value === "ascendingDate") {
+        dispatch(setFavoritesSorting("ascendingDate"));
         return a.updated > b.updated ? 1 : -1;
       }
-      if (value === 'decendingDate') {
-        dispatch(setFavoritesSorting('decendingDate'));
+      if (value === "decendingDate") {
+        dispatch(setFavoritesSorting("decendingDate"));
         return a.updated > b.updated ? -1 : 1;
       }
     });
-    if (value === 'unsorted') {
-      dispatch(setFavoritesSorting('unsorted'));
+    if (value === "unsorted") {
+      dispatch(setFavoritesSorting("unsorted"));
       // sortedLowercase = allPodcasts;
       sortedLowercase = favouritesArray;
     }
