@@ -87,7 +87,7 @@ const Login = () => {
         </FormFieldContainer>
         {isError && (
           <p>
-            There is no Wave account that matches details. Please
+            There is no Podcast account that matches details. Please
             <Link to="/signup">sign up</Link> .
           </p>
         )}

@@ -2,9 +2,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { styled } from "styled-components";
-import Seasons from "../components/Seasons";
+import Seasons from "../Components/Seasons";
 import { Link } from "react-router-dom";
-import { Navbar } from "../components";
+import { Navbar } from "../Components";
 
 const SinglePodcastContainer = styled.section`
   padding: 0.5rem 0.5rem;

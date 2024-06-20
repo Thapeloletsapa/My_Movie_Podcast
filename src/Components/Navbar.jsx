@@ -98,7 +98,7 @@ const Navbar = (props) => {
         <Nav>
           <img
             src="/public/favicon-16x16.png"
-            alt="Wave logo"
+            alt="Podcast logo"
             onClick={backToHome}
           />
     

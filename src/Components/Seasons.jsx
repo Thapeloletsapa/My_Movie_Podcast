@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import AllEpisodes from './AllEpisodes';
 import { setCurrentSeason } from '../globalState/reducers/podcastsReducer';
 import { styled } from 'styled-components';
+
+
 const SeasonDetails = styled.p`
   font-size: 0.7rem;
   color: gray;
