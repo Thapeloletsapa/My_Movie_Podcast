@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { styled } from 'styled-components';
-import Seasons from '../components/Seasons';
-import { Link } from 'react-router-dom';
-import { Navbar } from '../components';
-
+import React from "react";
+import { useSelector } from "react-redux";
+import { styled } from "styled-components";
+import Seasons from "../components/Seasons";
+import { Link } from "react-router-dom";
+import { Navbar } from "../components";
 
 const SinglePodcastContainer = styled.section`
   padding: 0.5rem 0.5rem;
@@ -40,3 +39,40 @@ const SinglePodcast = () => {
   const { currentPodcast, isLoading } = useSelector(
     (state) => state.podcastsReducer
   );
+
+  return (
+    <>
+      <Navbar />
+      <SinglePodcastContainer>
+        {isLoading ? (
+          <p>Loading</p>
+        ) : (
+          <>
+            <Header>
+              <ButtonsContainer>
+                <Link to="/">
+                  <button>Back to all shows</button>
+                </Link>
+                <Link to="/favourites">
+                  <button>Favourites</button>
+                </Link>
+              </ButtonsContainer>
+              <PodcastDetails>
+                <Image src={currentPodcast.image} alt={currentPodcast.title} />
+                <div>
+                  <PodcastTitle>{currentPodcast.title}</PodcastTitle>
+                  <PodcastDescription>
+                    {currentPodcast.description}
+                  </PodcastDescription>
+                </div>
+              </PodcastDetails>
+            </Header>
+            <Seasons />
+          </>
+        )}
+      </SinglePodcastContainer>
+    </>
+  );
+};
+
+export default SinglePodcast;
