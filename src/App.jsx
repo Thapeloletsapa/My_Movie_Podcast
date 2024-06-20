@@ -6,7 +6,7 @@ import Podcast from "./Components/Podcast";
 import EpisodeList from "./Components/EpisodeList";
 import Episode from "./Components/Episode";
 import AudioPlayer from "./Components/AudioPlayer";
-import Favourites from "./Components/Favourites";
+import Favourites from "./pages/Favourites";
 import GenreFilter from "./Components/GenreFilter";
 import Header from "./Components/Header";
 import { BrowserRouter, Route } from "react-router-dom";
