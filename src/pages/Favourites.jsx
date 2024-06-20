@@ -89,3 +89,36 @@ const Favourites = () => {
     useEffect(() => {
       dispatch(setFavouritesDisplayedPodcasts(favouritesArray));
     }, []);
+
+    const Favourites = () => {
+      const { favourites, favouritesSorting, favouritesDisplayPodcasts } =
+        useSelector((state) => state.podcastsReducer);
+      const favouritesArray = favourites.map((item) => {
+        const parsedItemDetails = JSON.parse(item.episodeDetails);
+        return parsedItemDetails;
+      });
+      const dispatch = useDispatch();
+    
+      useEffect(() => {
+        dispatch(setFavouritesDisplayedPodcasts(favouritesArray));
+      }, []);
+
+      
+      return (
+        <Favourite
+          key={item.id}
+          // details={parsedItemDetails}
+          details={item}
+          showNameId={item.showId}
+        >
+          {/* {parsedItemDetails.description} */}
+        </Favourite>
+      );
+    })}
+  </div>
+</FavouritesContainer>
+</>
+);
+};
+
+export default Favourites;
