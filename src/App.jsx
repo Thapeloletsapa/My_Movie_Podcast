@@ -41,20 +41,14 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Route
-        render={(props) => {
-          <>
-            <Header {...props} />
-            <Routes />
-            <PodcastList podcasts={shows} />
-            <Favourites favourites={favourites} />
-            <AudioPlayer />
-            <Footer />
-          </>;
-        }}
-      />
-    </BrowserRouter>
+    <div>
+      <div>
+        <Header />
+        <PodcastList podcasts={shows} />
+        <Favourites favourites={favourites} />
+        <AudioPlayer />
+      </div>
+    </div>
   );
 }
 
