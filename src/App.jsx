@@ -1,54 +1,96 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
-import { getShows, getShow, getGenre } from "./api";
-import PodcastList from "./Components/PodcastHome";
-import Podcast from "./Components/Podcast";
-import EpisodeList from "./Components/EpisodeList";
-import Episode from "./Components/Episode";
-import AudioPlayer from "./Components/AudioPlayer";
-import { Home,Signup, SinglePodcast,Login,Favourites,PageNotFound,
+
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// routes
+import {
+  Home,
+  Signup,
+  SinglePodcast,
+  Login,
+  Favourites,
+  PageNotFound,
 } from './pages';
-import GenreFilter from "./Components/GenreFilter";
-import Header from "./Components/Header";
-import { BrowserRouter, Route } from "react-router-dom";
+
+// redux
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  setAllPodcasts,
+  setIsLoading,
+  setHomePageDisplayedPodcasts,
+  setUserDataFromDB,
+  setHasAccount,
+  setFavourites,
+  setSortSearchFavouritesArray,
+} from './globalState/reducers/podcastsReducer';
 
 import "./styles.css";
 
 function App() {
-  const [shows, setShows] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [favourites, setFavourites] = useState({});
+  const { favourites, favouriteSwitch } = useSelector(
+    (state) => state.podcastsReducer
+  );
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getShows().then((response) => {
-      setShows(response.data);
-      setLoading(false);
-    });
+    dispatch(setIsLoading(true));
+    const getPodcasts = async () => {
+      const response = await fetch('https://podcast-api.netlify.app/shows');
+      const result = await response.json();
+
+      if (result) {
+        dispatch(setHomePageDisplayedPodcasts(result));
+        dispatch(setAllPodcasts(result));
+
+        dispatch(setIsLoading(false));
+      } else {
+        console.log('error');
+      }
+      return result;
+    };
+    getPodcasts();
   }, []);
 
-  const handleFavourite = (episodeId) => {
-    setFavourites((prevFavourites) => ({
-      ...prevFavourites,
-      [episodeId]: true,
-    }));
+  const fetchLoginData = async () => {
+    const { data, error } = await supabase.from('user_login_data').select();
+    if (error) {
+      console.log(error);
+    }
+    if (data.length !== 0) {
+      dispatch(setUserDataFromDB(data));
+      dispatch(setHasAccount(true));
+    }
   };
+  useEffect(() => {
+    fetchLoginData();
+  }, []);
 
-  const handleUnfavourite = (episodeId) => {
-    setFavourites((prevFavourites) => ({
-      ...prevFavourites,
-      [episodeId]: false,
-    }));
+  const fetchFavouritesFromDB = async () => {
+    const { data, error } = await supabase.from('userFavourites').select();
+    if (data) {
+      dispatch(setFavourites(data));
+    }
   };
+  useEffect(() => {
+    fetchFavouritesFromDB();
+  }, [favouriteSwitch]);
 
   return (
-    <div>
-      <div>
-        <Header />
-        <PodcastList podcasts={shows} />
-        <Favourites favourites={favourites} />
-        <AudioPlayer />
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/podcast/:id" element={<SinglePodcast />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
