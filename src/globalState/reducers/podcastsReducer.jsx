@@ -1,7 +1,4 @@
-/* eslint-disable no-undef */
 import { createSlice } from '@reduxjs/toolkit';
-
-
 const podcastsSlice = createSlice({
   name: 'podcastsSlice',
   initialState: {
@@ -88,24 +85,22 @@ const podcastsSlice = createSlice({
 });
 
 export const {
-    setAllPodcasts,
-    setIsLoading,
-    setCurrentPodcast,
-    setCurrentSeason,
-    setHomePageDisplayedPodcasts,
-    setSorting,
-    setSearchInput,
-    setUserData,
-    resetUserDataForm,
-    setUserDataFromDB,
-    setHasAccount,
-    setIsLoggedIn,
-    setFavourites,
-    setFavouriteSwitch,
-    setSortSearchFavouritesArray,
-    setFavoritesSorting,
-    setFavouritesDisplayedPodcasts,
-  } = podcastsSlice.actions;
-  
-  export default podcastsReducer = podcastsSlice.reducer;
-  
+  setAllPodcasts,
+  setIsLoading,
+  setCurrentPodcast,
+  setCurrentSeason,
+  setHomePageDisplayedPodcasts,
+  setSorting,
+  setSearchInput,
+  setUserData,
+  resetUserDataForm,
+  setUserDataFromDB,
+  setHasAccount,
+  setIsLoggedIn,
+  setFavourites,
+  setFavouriteSwitch,
+  setSortSearchFavouritesArray,
+  setFavoritesSorting,
+  setFavouritesDisplayedPodcasts,
+} = podcastsSlice.actions;
+export const podcastsReducer = podcastsSlice.reducer;
