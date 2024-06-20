@@ -5,4 +5,4 @@ import Episode from './Episode';
 import AllEpisodes from './AllEpisodes';
 import Navbar from './Navbar';
 
-export { Navbar, PodcastHome, Seasons, Episode, AllEpisodesPerSeason };
+export { Navbar, PodcastHome, Seasons, Episode, AllEpisodes };

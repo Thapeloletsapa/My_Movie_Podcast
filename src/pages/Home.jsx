@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { styled } from "styled-components";
-import { HomePodcast, Navbar } from "../components";
+import { PodcastHome, Navbar } from "../components";
 import { setHomePageDisplayedPodcasts } from "../globalState/reducers/podcastsReducer";
 
 const Main = styled.main`
@@ -41,7 +41,7 @@ const Home = () => {
             {homePageDisplayedPodcasts.map((item, index) => {
               const { description, image, id, title, genres } = item;
 
-              return <HomePodcast key={id} item={item} />;
+              return <PodcastHome key={id} item={item} />;
             })}
           </PodcastsContainer>
         )}
