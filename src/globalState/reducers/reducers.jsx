@@ -1,0 +1,21 @@
+import { createSlice } from '@reduxjs/toolkit';
+const podcastsSlice = createSlice({
+  name: 'podcastsSlice',
+  initialState: {
+    allPodcasts: [],
+    isLoading: false,
+    currentSeason: null,
+    currentPodcast: null,
+    homePageDisplayedPodcasts: [],
+    sorting: 'unsorted',
+    favouritesSorting: 'unsorted',
+    favouritesDisplayPodcasts: [],
+    searchInput: '',
+    userData: { userName: '', userEmail: '', userPassword: '' },
+    userDataDB: null,
+    hasAccount: false,
+    isLoggedIn: false,
+    favourites: null,
+    sortSearchFavouritesArrayDisplay: null,
+    favouriteSwitch: true,
+  },

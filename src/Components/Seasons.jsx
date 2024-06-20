@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import AllEpisodesPerSeason from './AllEpisodesPerSeason';
+import AllEpisodes from './AllEpisodes';
 import { setCurrentSeason } from '../globalState/reducers/podcastsReducer';
 import { styled } from 'styled-components';
 const SeasonDetails = styled.p`
@@ -50,7 +50,7 @@ const Seasons = () => {
           .reverse()}
       </Select>
       <p className="bolder">Episodes</p>
-      <AllEpisodesPerSeason currentSeasonEpisodes={currentSeasonEpisodes} />
+      <AllEpisodes currentSeasonEpisodes={currentSeasonEpisodes} />
     </div>
   );
 };
