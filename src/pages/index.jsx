@@ -3,5 +3,5 @@ import Signup from "./Signup";
 import SinglePodcast from "./SinglePodcast";
 import Login from "./Login";
 import Favourites from "./Favourites";
-import PageNotFound from "./PageNotFound";
+import PageNotFound from "./PageNotFound.jsx";
 export { Favourites, Home, Signup, SinglePodcast, Login, PageNotFound };
