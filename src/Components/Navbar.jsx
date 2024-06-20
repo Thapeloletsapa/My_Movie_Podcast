@@ -97,7 +97,7 @@ const Navbar = (props) => {
     return (
         <Nav>
           <img
-            src="/public/favicon-16x16.png"
+            src="/public/Avioli's Podcast_transparent.png"
             alt="Podcast logo"
             onClick={backToHome}
           />
