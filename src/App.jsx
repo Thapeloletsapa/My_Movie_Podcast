@@ -11,7 +11,6 @@ import GenreFilter from "./Components/GenreFilter";
 import Header from "./Components/Header";
 import { BrowserRouter, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
-import Routes from "./config/Routes";
 import "./styles.css";
 
 function App() {
