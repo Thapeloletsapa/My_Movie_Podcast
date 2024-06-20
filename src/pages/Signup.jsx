@@ -1,5 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
@@ -89,11 +89,11 @@ const Signup = () => {
   return (
     <SignupPage>
       <SignupContainer>
-        <h1>Sign up for free to start listening</h1>
+        <h1>Sign up now to start streaming.</h1>
 
         <SignupForm onSubmit={createUser}>
           <FormFieldContainer>
-            <FormLabel htmlFor="userName">What should we call you?</FormLabel>
+            <FormLabel htmlFor="userName">Provide Username</FormLabel>
             <FormInput
               type="text"
               name="userName"

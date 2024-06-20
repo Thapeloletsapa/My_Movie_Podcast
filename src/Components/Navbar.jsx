@@ -13,7 +13,7 @@ import {
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: #242424;
+  background-color: #801818;
   padding: 0.5rem;
   gap: 1rem;
   width: 95vw;
@@ -41,7 +41,7 @@ const LogInButtons = styled.div`
 
 // Define a styled button element
 const Button = styled.button`
-  font-size: 0.7rem;
+  font-size: 2rem;
 `;
 
 const Navbar = () => {
@@ -122,7 +122,8 @@ const Navbar = () => {
         src="/public/Avioli's Podcast_transparent.png"
         alt="Podcast logo"
         onClick={handleBackToHome}
-        width="50px"
+        
+        width="80px"
       />
 
       {/* Sorting select element */}

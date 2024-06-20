@@ -59,7 +59,7 @@ const Login = () => {
   };
   return (
     <LoginContainer>
-      <h1>Log in to the Wave</h1>
+      <h1>Log in to Aviolis Podcast</h1>
       <LoginForm onSubmit={checkIfSignedup}>
         <FormFieldContainer>
           <FormLabel htmlFor="userName">Username</FormLabel>

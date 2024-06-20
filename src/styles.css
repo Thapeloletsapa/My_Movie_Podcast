@@ -4,9 +4,15 @@
   padding: 0;
 }
 body {
-  background-color: #121212;
-  color: #fff;
+  background: hsla(154, 53%, 82%, 1);
 
+  background: linear-gradient(90deg, hsla(154, 53%, 82%, 1) 0%, hsla(24, 88%, 65%, 1) 50%, hsla(216, 56%, 16%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(154, 53%, 82%, 1) 0%, hsla(24, 88%, 65%, 1) 50%, hsla(216, 56%, 16%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(154, 53%, 82%, 1) 0%, hsla(24, 88%, 65%, 1) 50%, hsla(216, 56%, 16%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#B8E9D4", endColorstr="#F4985A", GradientType=1 );
   font-family: "Roboto", sans-serif;
 }
 
