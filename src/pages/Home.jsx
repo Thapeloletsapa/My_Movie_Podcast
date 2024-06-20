@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { styled } from "styled-components";
-import { PodcastHome, Navbar } from "../components";
+import { PodcastHome, Navbar } from "../Components";
 import { setHomePageDisplayedPodcasts } from "../globalState/reducers/podcastsReducer";
 
 const Main = styled.main`
