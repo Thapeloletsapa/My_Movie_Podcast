@@ -105,5 +105,6 @@ export const {
     setFavoritesSorting,
     setFavouritesDisplayedPodcasts,
   } = podcastsSlice.actions;
+  
   export const podcastsReducer = podcastsSlice.reducer;
   
