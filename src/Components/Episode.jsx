@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import supabase from "../supabase/client";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { styled } from "styled-components";
+
+
 const EpisodeContainer = styled.div`
   background-color: #242424;
   margin: 1rem 0;

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { getShows, getShow, getGenre } from "./api";
-import PodcastList from "./Components/PodcastList";
+import PodcastList from "./Components/PodcastHome";
 import Podcast from "./Components/Podcast";
 import EpisodeList from "./Components/EpisodeList";
 import Episode from "./Components/Episode";
