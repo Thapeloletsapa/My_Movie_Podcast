@@ -42,3 +42,25 @@ const Favourite = ({ details, showNameId }) => {
     showTitle,
     showId,
   } = details;
+
+  
+  return (
+    <>
+      <EpisodeContainer>
+        <Link to={`/`}>
+          <button>Go home</button>
+        </Link>
+        <h3>{showTitle}</h3>
+        <h4>{`S:${currentSeason} EP${episode}: ${title}`}</h4>
+        <ImageDescriptionContainer>
+          <Image src={image} alt={title} />
+
+          <Description>{description}</Description>
+        </ImageDescriptionContainer>
+        <audio controls>
+          <source src={file} type="audio/mp3" />
+        </audio>
+      </EpisodeContainer>
+    </>
+  );
+};
