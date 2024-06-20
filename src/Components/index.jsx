@@ -1,6 +1,8 @@
-import HomePodcast from './HomePodcast';
+/* eslint-disable no-unused-vars */
+import PodcastHome from './PodcastHome';
 import Seasons from './Seasons';
 import Episode from './Episode';
-import AllEpisodesPerSeason from './AllEpisodesPerSeason';
+import AllEpisodes from './AllEpisodes';
 import Navbar from './Navbar';
-export { Navbar, HomePodcast, Seasons, Episode, AllEpisodesPerSeason };
+
+export { Navbar, PodcastHome, Seasons, Episode, AllEpisodesPerSeason };

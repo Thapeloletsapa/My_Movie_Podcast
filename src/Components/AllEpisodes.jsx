@@ -5,7 +5,7 @@ import Episode from "./Episode";
 import { useSelector } from "react-redux";
 
 // eslint-disable-next-line react-refresh/only-export-components
-const AllEpisodesPerSeason = ({ currentSeasonEpisodes }) => {
+const AllEpisodes = ({ currentSeasonEpisodes }) => {
   const { currentPodcast, currentSeason } = useSelector(
     (state) => state.podcastsReducer
   );
@@ -33,3 +33,5 @@ const AllEpisodesPerSeason = ({ currentSeasonEpisodes }) => {
     </div>
   );
 };
+
+export default AllEpisodes;

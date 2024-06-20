@@ -6,11 +6,12 @@ import Podcast from "./Components/Podcast";
 import EpisodeList from "./Components/EpisodeList";
 import Episode from "./Components/Episode";
 import AudioPlayer from "./Components/AudioPlayer";
-import Favourites from "./pages/Favourites";
+import { Home,Signup, SinglePodcast,Login,Favourites,PageNotFound,
+} from './pages';
 import GenreFilter from "./Components/GenreFilter";
 import Header from "./Components/Header";
 import { BrowserRouter, Route } from "react-router-dom";
-import Footer from "./Components/Footer";
+
 import "./styles.css";
 
 function App() {
