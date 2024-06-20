@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { createSlice } from '@reduxjs/toolkit';
 
 
@@ -106,5 +107,5 @@ export const {
     setFavouritesDisplayedPodcasts,
   } = podcastsSlice.actions;
   
-  export const podcastsReducer = podcastsSlice.reducer;
+  export default podcastsReducer = podcastsSlice.reducer;
   
