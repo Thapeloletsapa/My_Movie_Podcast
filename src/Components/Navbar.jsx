@@ -17,7 +17,7 @@ const Nav = styled.nav`
   padding: 0.5rem;
   gap: 5rem;
   margin: 0.15rem auto;
-  box-shadow: 5px 8px 3px;
+  box-shadow: 8px 5px 20px;
 `;
 
 // Define a styled select element
