@@ -17,15 +17,17 @@ const Nav = styled.nav`
   padding: 0.5rem;
   gap: 5rem;
   margin: 0.15rem auto;
-  box-shadow: 5px 8px 3px
-
+  box-shadow: 5px 8px 3px;
 `;
-
 
 // Define a styled select element
 const Select = styled.select`
-  width: 5rem;
-  font-size: 0.7rem;
+  width: 10rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
 `;
 
 // Define a styled input element
@@ -74,15 +76,19 @@ const Navbar = () => {
 
     // Sort the podcasts based on the selected value
     switch (value) {
+      // Sort alphabetically in ascending order
       case "AZ":
         sortedPodcasts.sort((a, b) => a.title.localeCompare(b.title));
         break;
+      // Sort alphabetically in descending order
       case "ZA":
         sortedPodcasts.sort((a, b) => b.title.localeCompare(a.title));
         break;
+      // Sort by date in ascending order
       case "ascendingDate":
         sortedPodcasts.sort((a, b) => a.updated - b.updated);
         break;
+      // Sort by date in descending order
       case "decendingDate":
         sortedPodcasts.sort((a, b) => b.updated - a.updated);
         break;
@@ -123,7 +129,6 @@ const Navbar = () => {
         src="/public/Avioli's Podcast_transparent.png"
         alt="Podcast logo"
         onClick={handleBackToHome}
-        
         width="80px"
       />
 
@@ -135,11 +140,11 @@ const Navbar = () => {
           value={sorting}
           onChange={handleSortAlphabetically}
         >
-          <option value="unsorted">-- unsorted --</option>
-          <option value="AZ">a-z</option>
-          <option value="ZA">z-a</option>
-          <option value="decendingDate">newest-oldest</option>
-          <option value="ascendingDate">oldest-newest</option>
+          <option value="">-- Select an Podcast --</option>
+          <option value="AZ">Alphabetical (A-Z)</option>
+          <option value="ZA">Alphabetical (Z-A)</option>
+          <option value="decendingDate">Date (Newest)</option>
+          <option value="ascendingDate">Date (Oldest)</option>
         </Select>
       </p>
 
@@ -152,18 +157,51 @@ const Navbar = () => {
           onChange={handleSearchPodcasts}
           value={searchInput}
           placeholder="Search"
+          style={{
+            padding: "0.5rem",
+            fontSize: "0.9rem",
+            border: "none",
+            borderRadius: "0.5rem",
+            backgroundColor: "#f5f5f5",
+            width: "15rem",
+          }}
         />
       </form>
 
-      {/* Login buttons */}
-      <LogInButtons>
+       {/* Login buttons */}
+       <LogInButtons>
         {!isLoggedIn && (
           <Link to="/signup">
-            <Button>Signup</Button>
+            <Button
+              style={{
+                marginRight: "1rem",
+                padding: "0.5rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                borderRadius: "0.5rem",
+                backgroundColor: "#4CAF50",
+                color: "#ffffff",
+                cursor: "pointer",
+              }}
+            >
+              Signup
+            </Button>
           </Link>
         )}
         <Link to="/login">
-          <Button>{!isLoggedIn ? "Login" : "Logout"}</Button>
+          <Button
+            style={{
+              padding: "0.5rem 1rem",
+              fontSize: "0.9rem",
+              border: "none",
+              borderRadius: "0.5rem",
+              backgroundColor: "#4CAF50",
+              color: "#ffffff",
+              cursor: "pointer",
+            }}
+          >
+            {!isLoggedIn ? "Login" : "Logout"}
+          </Button>
         </Link>
       </LogInButtons>
     </Nav>
