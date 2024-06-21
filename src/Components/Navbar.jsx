@@ -126,7 +126,7 @@ const Navbar = () => {
     <Nav>
       {/* Logo image with a click handler to go back to home */}
       <img
-        src="/public/Avioli's Podcast_transparent.png"
+        src="/Avioli's Podcast_transparent.png"
         alt="Podcast logo"
         onClick={handleBackToHome}
         width="80px"
