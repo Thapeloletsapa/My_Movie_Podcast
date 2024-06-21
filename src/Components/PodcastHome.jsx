@@ -14,17 +14,19 @@ import {
 // Define styled components
 const PodcastContainer = styled.div`
   flex-grow: 1;
-  width: 12rem;
+  width: 15rem;
   margin-bottom: 3rem;
+  margin-top: 1.5rem;
   box-shadow: 1em 20px 20px;
   display: flex;
   justify-content: center;
   border-radius: 0.9rem;
+  
 `;
 
 const Podcast = styled.div`
   color: #fff;
-  width: 10rem;
+  width: 100%;
 
 `;
 
@@ -56,7 +58,9 @@ const Genre = styled.span`
 `;
 
 const GenreContainer = styled.div`
-  font-size: 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 200;
+  
 `;
 
 const PodcastHome = ({ item }) => {

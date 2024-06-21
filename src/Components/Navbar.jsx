@@ -13,15 +13,14 @@ import {
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: #801818;
+  align-items: center;
   padding: 0.5rem;
-  gap: 1rem;
-  width: 100%;
+  gap: 5rem;
   margin: 0.15rem auto;
-  border-radius: 0.25rem;
   box-shadow: 5px 8px 3px
-  margin-bottom
+
 `;
+
 
 // Define a styled select element
 const Select = styled.select`
