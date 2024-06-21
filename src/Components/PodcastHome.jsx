@@ -1,3 +1,4 @@
+
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
@@ -9,7 +10,7 @@ import {
   setCurrentPodcast,
   setIsLoading,
   setCurrentSeason,
-} from '../globalState/reducers/podcastsReducer';
+} from '../globalState/reducers/podcastsReducer'
 
 // Define styled components
 const PodcastContainer = styled.div`
@@ -21,13 +22,15 @@ const PodcastContainer = styled.div`
   display: flex;
   justify-content: center;
   border-radius: 0.9rem;
-  
+  background-color: #fff;
+  padding: 1rem;
 `;
 
 const Podcast = styled.div`
-  color: #fff;
   width: 100%;
-
+  background-color: inherit;
+  padding: inherit;
+  box-sizing: border-box;
 `;
 
 const Image = styled.img`
@@ -39,13 +42,13 @@ const Title = styled.p`
   font-weight: 900;
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
-  font-family:arial;
+  font-family: arial;
 `;
 
 const Details = styled.p`
   font-size: 0.9rem;
   color: gray;
-  margin-top:0.4rem;
+  margin-top: 0.4rem;
 `;
 
 const Description = styled.p`
@@ -60,7 +63,6 @@ const Genre = styled.span`
 const GenreContainer = styled.div`
   font-size: 0.95rem;
   font-weight: 200;
-  
 `;
 
 const PodcastHome = ({ item }) => {
