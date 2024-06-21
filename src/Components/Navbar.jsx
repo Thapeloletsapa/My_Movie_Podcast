@@ -16,9 +16,11 @@ const Nav = styled.nav`
   background-color: #801818;
   padding: 0.5rem;
   gap: 1rem;
-  width: 95vw;
+  width: 100%;
   margin: 0.15rem auto;
   border-radius: 0.25rem;
+  box-shadow: 5px 8px 3px
+  margin-bottom
 `;
 
 // Define a styled select element
@@ -29,7 +31,7 @@ const Select = styled.select`
 
 // Define a styled input element
 const Input = styled.input`
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 `;
 
 // Define a styled div element for login buttons

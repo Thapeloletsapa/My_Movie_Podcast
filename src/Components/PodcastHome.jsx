@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+
 import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -10,43 +11,56 @@ import {
   setCurrentSeason,
 } from '../globalState/reducers/podcastsReducer';
 
+// Define styled components
 const PodcastContainer = styled.div`
   flex-grow: 1;
-  width: 10rem;
-  margin-bottom: 2rem;
-  background-color: #181818;
+  width: 12rem;
+  margin-bottom: 3rem;
+  box-shadow: 1em 20px 20px;
   display: flex;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.9rem;
 `;
+
 const Podcast = styled.div`
   color: #fff;
   width: 10rem;
+
 `;
+
 const Image = styled.img`
   width: 100%;
   border-radius: 0.25rem;
 `;
+
 const Title = styled.p`
-  font-weight: 600;
-  font-size: 0.85rem;
-  margin-bottom: 0.2rem;
+  font-weight: 900;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-family:arial;
 `;
+
 const Details = styled.p`
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: gray;
+  margin-top:0.4rem;
 `;
+
 const Description = styled.p`
   font-size: 0.7rem;
   margin-bottom: 0.2rem;
 `;
+
 const Genre = styled.span`
-  margin-right: 1rem;
+  margin-right: 0.4rem;
 `;
+
 const GenreContainer = styled.div`
   font-size: 0.7rem;
 `;
+
 const PodcastHome = ({ item }) => {
+  // Define genre names
   const genreNames = {
     1: 'Personal Growth',
     2: 'True Crime and Investigative Journalism',
@@ -56,9 +70,13 @@ const PodcastHome = ({ item }) => {
     6: 'Business',
     7: 'Fiction',
     8: 'News',
-    9: 'Kids and Family}',
+    9: 'Kids and Family',
   };
+
+  // Get isLoading state from Redux store
   const { isLoading } = useSelector((state) => state.podcastsReducer);
+
+  // Destructure item props
   const {
     description,
     image,
@@ -68,21 +86,28 @@ const PodcastHome = ({ item }) => {
     updated,
     genres,
   } = item;
-  const dispatch = useDispatch();
-  const lastUpdateDate = new Date(updated);
 
+  // Get dispatch function from Redux
+  const dispatch = useDispatch();
+
+  // Format last update date
+  const lastUpdateDate = new Date(updated);
   const day = lastUpdateDate.getDate();
   const month = lastUpdateDate.getMonth();
   const year = lastUpdateDate.getFullYear();
-
   const date = `${day}/${month + 1}/${year}`;
+
+  // Define getSinglePodcast function
   const getSinglePodcast = async () => {
     try {
+      // Set isLoading to true
       dispatch(setIsLoading(true));
-      const response = await fetch(
-        `https://podcast-api.netlify.app/id/${podcastId}`
-      );
+
+      // Fetch podcast data from API
+      const response = await fetch(`https://podcast-api.netlify.app/id/${podcastId}`);
       const result = await response.json();
+
+      // If result is valid, update Redux store and set isLoading to false
       if (result) {
         dispatch(setCurrentPodcast(result));
         dispatch(setCurrentSeason(result.seasons.length));
