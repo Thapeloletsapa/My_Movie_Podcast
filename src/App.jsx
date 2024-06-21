@@ -2,8 +2,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 // Import necessary dependencies
-import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 // Import routes
 import {
@@ -13,10 +13,10 @@ import {
   Login,
   Favourites,
   PageNotFound,
-} from './pages';
-
+} from "./pages";
+import supabase from "./supabase/client";
 // Import Redux dependencies
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import {
   setAllPodcasts,
   setIsLoading,
@@ -25,7 +25,7 @@ import {
   setHasAccount,
   setFavourites,
   setSortSearchFavouritesArray,
-} from './globalState/reducers/podcastsReducer';
+} from "./globalState/reducers/podcastsReducer";
 
 // Import styles
 import "./styles.css";
@@ -48,7 +48,7 @@ function App() {
     // Fetch podcasts from API
     const fetchPodcasts = async () => {
       try {
-        const response = await fetch('https://podcast-api.netlify.app/shows');
+        const response = await fetch("https://podcast-api.netlify.app/shows");
         const result = await response.json();
 
         // If result is successful, update Redux state
@@ -57,10 +57,10 @@ function App() {
           dispatch(setAllPodcasts(result));
           dispatch(setIsLoading(false));
         } else {
-          console.log('Error fetching podcasts');
+          console.log("Error fetching podcasts");
         }
       } catch (error) {
-        console.log('Error fetching podcasts:', error);
+        console.log("Error fetching podcasts:", error);
       }
     };
     fetchPodcasts();
@@ -70,7 +70,7 @@ function App() {
   useEffect(() => {
     const fetchLoginData = async () => {
       try {
-        const { data, error } = await supabase.from('user_login_data').select();
+        const { data, error } = await supabase.from("user_login_data").select();
 
         // If data is available, update Redux state
         if (data && data.length !== 0) {
@@ -78,7 +78,7 @@ function App() {
           dispatch(setHasAccount(true));
         }
       } catch (error) {
-        console.log('Error fetching login data:', error);
+        console.log("Error fetching login data:", error);
       }
     };
     fetchLoginData();
@@ -88,14 +88,14 @@ function App() {
   useEffect(() => {
     const fetchFavouritesFromDB = async () => {
       try {
-        const { data, error } = await supabase.from('userFavourites').select();
+        const { data, error } = await supabase.from("userFavourites").select();
 
         // If data is available, update Redux state
         if (data) {
           dispatch(setFavourites(data));
         }
       } catch (error) {
-        console.log('Error fetching favourites:', error);
+        console.log("Error fetching favourites:", error);
       }
     };
     fetchFavouritesFromDB();
